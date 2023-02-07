@@ -1,137 +1,165 @@
-{%extends 'base.htm'%} {%block content%}
+{%extends 'base.htm'%}
+{% block title %}
+Register
+{% endblock %}{%block content%}
 
-    <!-- FORM -->
+<div class="flex flex-cols items-center justify-center mt-8">
+  <h1 class="text-black text-4xl">Register as SIG</h1>
+</div>
+<div class="flex items-center justify-center p-12">
 
-    <section class="form flex items-stretch w-11/12">
-        <div class="form__left flex flex-col justify-center items-center">
+  <div class="mx-auto w-full max-w-[550px]">
+    <form method="POST">
+      {{form.hidden_tag()}}
+      {{form.csrf_token}}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 1 Name
+        </label>
+        {{form.name1(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
 
-            <p class="form__left-text mb-8">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, voluptate deleniti. Ipsum vel quae esse eum, inventore tempore voluptatem dolorum
-            </p>
-        </div>
-        <form method="post" class="form__right flex flex-col justify-center items-center">
-          {{form.hidden_tag()}}
-            <h1 class="heading-1 mt-16 mb-8">Sign Up</h1>
-            <p class="form__right-text mb-8">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            {{form.name1(class="form__input", placeholder='Member 1 Name')}}
-            {%if form.name1.errors%}
-            {%for error in form.name1.errors%}
-            <small class="error">{{error}}</small>
+      </div>
 
-            {%endfor%} {%endif%}
-            {{form.name2(class="form__input", placeholder='Member 2 Name')}}
-            {%if form.name2.errors%}
-            {%for error in form.name2.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 2 Name
+        </label>
+        {{form.name2(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}</div>
 
-            {%endfor%} {%endif%}
-            {{form.name3(class="form__input", placeholder='Member 3 Name')}}
-            {%if form.name3.errors%}
-            {%for error in form.name3.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 3 Name
+        </label>
+        {{form.name3(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%endfor%} {%endif%}
-            {{form.name4(class="form__input", placeholder='Member 4 Name')}}
-            {{form.name5(class="form__input", placeholder='Member 5 Name')}}
-            {{form.name6(class="form__input", placeholder='Member 6 Name')}}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 4 Name
+        </label>
+        {{form.name4(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
 
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 1 School
+        </label>
+        {{form.school1(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {{form.school1(class="form__input", placeholder='Member 1 school')}}
-            {%if form.school1.errors%}
-            {%for error in form.school1.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
-            {{form.school2(class="form__input", placeholder='Member 2 school')}}
-            {%if form.school2.errors%}
-            {%for error in form.school2.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 2 School
+        </label>
+        {{form.school2(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%endfor%} {%endif%}
-            {{form.school3(class="form__input", placeholder='Member 3 school')}}
-            {%if form.school3.errors%}
-            {%for error in form.school3.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
-            {{form.school4(class="form__input", placeholder='Member 4 school')}}
-            {{form.school5(class="form__input", placeholder='Member 5 school')}}
-            {{form.school6(class="form__input", placeholder='Member 6 school')}}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 3 School
+        </label>
+        {{form.school3(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {{form.email1(class="form__input", placeholder='Email')}}
-            {%if form.email1.errors%}
-            {%for error in form.email1.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
-            {{form.emailb(class="form__input", placeholder='Backup Email')}}
-            {%if form.emailb.errors%}
-            {%for error in form.emailb.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Member 4 School
+        </label>
+        {{form.school4(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%endfor%} {%endif%}
 
-            {{form.phone1(class="form__input", placeholder='phone')}}
-            {%if form.phone1.errors%}
-            {%for error in form.phone1.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Email
+        </label>
+        {{form.email1(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%endfor%} {%endif%}
-            {{form.phoneb(class="form__input", placeholder='Backup phone')}}
-            {%if form.phoneb.errors%}
-            {%for error in form.phoneb.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Backup Email
+        </label>
+        {{form.emailb(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {{form.file1(class="form__input", placeholder='Gdoc Link')}}
-            {%if form.file1.errors%}
-            {%for error in form.file1.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Phone Number
+        </label>
+        {{form.phone1(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%endfor%} {%endif%}
-            {{form.file2(class="form__input", placeholder='Gdoc Link')}}
-            {%if form.file1.errors%}
-            {%for error in form.file1.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
-            {{form.file3(class="form__input", placeholder='Gdoc Link')}}
-            {%if form.file1.errors%}
-            {%for error in form.file1.errors%}
-            <small class="error">{{error}}</small>
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Backup Phone Number
+        </label>
+        {{form.phoneb(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%endfor%} {%endif%}
-            {{form.file4(class="form__input", placeholder='Gdoc Link')}}
-            {%if form.file4.errors%}
-            {%for error in form.file4.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Adult Mentor Name
+        </label>
+        {{form.am_name(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {{form.interest(class="form__input", placeholder='Special Interest Group Topic')}}
-            {%if form.interest.errors%}
-            {%for error in form.interest.errors%}
-            <small class="error">{{error}}</small>
 
-            {%endfor%} {%endif%}
-              {{form.password(class="form__input", placeholder='password')}}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Adult Mentor Email
+        </label>
+        {{form.am_email(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%if form.password.errors%} {%for error in
-              form.password.errors%}
-            <small>{{error}}</small>
-            {%endfor%} {%endif%}
 
-              {{form.pass_confirm(class="form__input" , placeholder='Confirm password')}}
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Adult Mentor Phone Number
+        </label>
+        {{form.am_phone(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md mb-2")}}
+          Password
+        </label>
+        {{form.password(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
 
-            {%if form.pass_confirm.errors%} {%for error in form.pass_confirm.errors%}
-            <small class="error">{{error}}</small>
-            {%endfor%} {%endif%}
-            {{form.submit(class ="btn-primary mb-16")}}
-        </form>
-    </section>
+
+
+      <div class="mb-5">
+        <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+          Confirm Password
+        </label>
+        {{form.pass_confirm(placeholder="...",
+        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md")}}
+      </div>
+      <button
+        class="w-full px-8 py-3 font-semibold transition-all hover:bg-blue-700 rounded-md bg-blue-600 text-gray-50">Sign
+        in</button>
+    </form>
+  </div>
+</div>
 
 {%endblock%}

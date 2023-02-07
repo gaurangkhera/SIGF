@@ -1,78 +1,137 @@
-<!DOCTYPE html>
+
 <html>
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SIGF | Home </title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="shortcut icon" href="/img/logo white.png">
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/7460cdd885.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SIGF | {% block title %}
+        
+    {% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c416e79406.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" />
+    <script async defer src="http://platform.instagram.com/en_US/embeds.js"></script>
+    <style>
+        @font-face {
+            font-family: 'Akira';
+            src: url('/static/fonts/Akira-Expanded-Demo.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Coolvetic';
+            src: url('/static/fonts/coolvetica-rg.ttf') format('truetype');
+        }
+    </style>
 </head>
 
-<body class="relative overflow-x-hidden">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>SIGF | Home</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/static/css/styles.css">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
-            rel="stylesheet">
-        <link rel="shortcut icon" href="/img/logo white.png">
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/7460cdd885.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-      {%block content%}
-      {%endblock%}
-    </body>
-
-    <nav class="navbar w-screen flex py-4 px-16 justify-between items-center z-50">
-        <div class="navbar__logo-container h-24 w-24">
+<body class="  bg-cover bg-gray-100" style="font-family: 'Coolvetic', sans-serif;">
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v15.0" nonce="m5R3hEit"></script>
+    <header class="p-4 bg-gray-100 text-gray-800">
+        <div class="container flex justify-between h-16 mx-auto">
+            <a rel="noopener noreferrer" href="/" aria-label="Back to homepage" class="flex items-center p-2">
+                <h1 class="text-4xl">SIGF</h1>
+            </a>
+            <ul class="items-stretch hidden space-x-3 lg:flex text-2xl">
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="{{url_for('index')}}"
+                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Home</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="{{url_for('about')}}"
+                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">About</a>
+                </li>
+                {% if not current_user.is_authenticated %}
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="{{url_for('register')}}"
+                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Register</a>
+                </li>
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="{{url_for('login')}}"
+                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Login</a>
+                </li>
+                {% else %}
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="{{url_for('logout')}}"
+                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Logout</a>
+                </li>
+                {% endif %}
+                <li class="flex">
+                    <a rel="noopener noreferrer" href="{{url_for('apply')}}"
+                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Apply</a>
+                </li>
+            </ul>
+            <button class="flex justify-end p-4 lg:hidden" id="ham">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
         </div>
-        {%if current_user.is_authenticated%}
-          <a class="navbar__link" href="{{url_for('logout')}}">Logout</a>
-        {%else%}
-        <nav class="nav">
-          <a class="navbar__link" href="{{ url_for('register')}}">Register</a>
-          <a class="navbar__link" href="{{ url_for('login')}}">Login</a>
-        </nav>
-        {%endif%}
-        <div class="navbar__links flex items-center justify-center mr-16">
-            <!-- <div class="search-box">
-                <button class="btn-search"><i class="fa-regular fa-magnifying-glass"></i></button>
-                <input type="text" class="input-search" placeholder="Type to Search...">
-              </div> -->
-        </div>
-    </nav>
-<!--
->>>>>>> aea8400cb91f25e941a662a9490c1e7615093545
-    <nav class="navbar w-screen flex py-4 px-16 justify-between items-center z-50">
-        <div class="navbar__logo-container h-24 w-24">
-        </div>
-
-        <div class="navbar__links flex items-center justify-center mr-16">
-            <a href="{{url_for('register')}}" class="navbar__link">Register</a>
-            <!-- <div class="search-box">
-                <button class="btn-search"><i class="fa-regular fa-magnifying-glass"></i></button>
-                <input type="text" class="input-search" placeholder="Type to Search...">
-              </div> -->
-        <!-- </div>
-    <!-- hero section -->
-    <footer class="footer">
-        <div class="footer__left">
-
+    </header>
+    <div class="hidden mobile-menu bg-gray-100" id="mobile">
+        <ul class="">
+          <li class="active">
+            <a href="{{url_for('index')}}" class="block text-xl ml-10 px-2 py-4 font-semibold"
+              >Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="{{url_for('about')}}"
+              class="block text-xl ml-10 px-2 py-4 font-semibold"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('register')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+              Register
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('login')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+              Login
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('apply')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+              Apply
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+      {% block content %}
+        
+      {% endblock %}
+      <footer class="px-4 py-8 bg-gray-100 text-gray-600">
+        <div
+            class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+            <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
+                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full ">
+                   <img src="IIGF.png">
+                </div>
+               
+            </div>
+            <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+                <li>
+                    <a rel="noopener noreferrer" href="https://www.instagram.com/studentigf/">Instagram</a>
+                </li>
+                <li>
+                    <a rel="noopener noreferrer" href="admin@studentigf.net">Mail</a>
+                </li>
+                <li>
+                    <a rel="noopener noreferrer" href="https://twitter.com/sigfofficial">Twitter</a>
+                </li>
+            </ul>
         </div>
     </footer>
-
+    <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
 </body>
 
 </html>

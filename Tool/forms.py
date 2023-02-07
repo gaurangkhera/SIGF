@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, TextAreaField, FileField, IntegerField, RadioField, DateField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, FileField, IntegerField, RadioField, DateField, EmailField
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import ValidationError
@@ -9,7 +9,6 @@ from Tool.models import User
 
 
 class RegistrationForm(FlaskForm):
-    interest = TextAreaField('First Name',validators=[DataRequired()])
     phone1 = IntegerField('phone1', validators=[DataRequired()])
     phoneb = IntegerField('phoneb', validators=[DataRequired()])
     email1 = StringField('Email1', validators=[DataRequired(), Email()])
@@ -18,21 +17,16 @@ class RegistrationForm(FlaskForm):
     name2 = StringField('name2', validators=[DataRequired()])
     name3 = StringField('name3', validators=[DataRequired()])
     name4 = StringField('name4')
-    name5 = StringField('name5')
-    name6 = StringField('name6')
     school1 = StringField('school1', validators=[DataRequired()])
     school2 = StringField('school2', validators=[DataRequired()])
     school3 = StringField('school3', validators=[DataRequired()])
     school4 = StringField('school4')
-    school5 = StringField('school5')
-    school6 = StringField('school6')
-    file1 = StringField('Pls attach gdoc link', validators=[DataRequired()])
-    file2 = StringField('Pls attach gdoc link', validators=[DataRequired()])
-    file3 = StringField('Pls attach gdoc link', validators=[DataRequired()])
-    file4 = StringField('Pls attach gdoc link', validators=[DataRequired()])
+    am_name = StringField('adult mentor name', validators=[DataRequired()])
+    am_email = StringField('adult mentor email', validators=[DataRequired()])
+    am_phone = StringField('adult phone', validators=[DataRequired()])
     submit = SubmitField('Register')
     password = PasswordField('Password', validators=[DataRequired(), EqualTo(
-        'pass_confirm', message='Passwords must match'), Length(min=8, max=16)])
+        'pass_confirm', message='Passwords must match.'), Length(min=8, max=16)])
     pass_confirm = PasswordField(
         'Confirm Password', validators=[DataRequired()])
 
@@ -40,15 +34,21 @@ class RegistrationForm(FlaskForm):
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError(
-                'The email you chose has already been registered')
+                'Email taken.')
 
     def validate_username(self, field):
         if User.query.filter_by(username=field.data).first():
             raise ValidationError(
-                'The username yuo chose has already been registered')
+                'Username taken.')
 
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Log in')
+    
+class ApplicationForm(FlaskForm):
+    name = StringField('Name', validators=[DataRequired()])
+    email = EmailField('Email', validators=[DataRequired()])
+    radio = RadioField('Select', choices=['Recruitment', 'Outreach', 'Graphics Design', 'Social Media Management'])
+    submit = SubmitField('Submit application')

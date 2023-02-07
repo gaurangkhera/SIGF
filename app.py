@@ -1,6 +1,6 @@
 from Tool import app,db
-from Tool.forms import RegistrationForm, LoginForm
-from Tool.models import User
+from Tool.forms import RegistrationForm, LoginForm, ApplicationForm
+from Tool.models import User, Application
 from flask import render_template, request, url_for, redirect, flash, abort, jsonify, make_response
 from flask_login import current_user, login_required, login_user, logout_user
 import secrets
@@ -9,11 +9,19 @@ import os
 import json
 from flask import Flask, render_template, request, abort
 from datetime import datetime
+from werkzeug.security import generate_password_hash
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    # new_user = User('password','name1', 'name2', 'name3', 'name4', 'name5', 'name6', 'school1', 'school2', 'school3', 'school4', 'school5', 'school6', 'admin@studentigf.net', 'emailb', 'phone1', 'phoneb', 'interest', 'file1', 'file2', 'file3','file4')
+    # db.session.add(new_user)
+    # db.session.commit()
     return render_template("index.htm")
+
+@app.route('/about')
+def about():
+    return render_template('about.htm')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -25,28 +33,22 @@ def register():
                     name2=form.name2.data,
                     name3=form.name3.data,
                     name4=form.name4.data or '',
-                    name5=form.name5.data or '',
-                    name6=form.name6.data or '',
 
                     school1=form.school1.data,
                     school2=form.school2.data,
                     school3=form.school3.data,
                     school4=form.school4.data or '',
-                    school5=form.school5.data or '',
-                    school6=form.school6.data or '',
 
                     email1=form.email1.data,
                     emailb=form.emailb.data,
 
                     phone1=form.phone1.data,
                     phoneb=form.phoneb.data,
+                    
+                    am_name = form.am_name.data,
+                    am_email = form.am_email.data,
+                    am_phone = form.am_phone.data,
 
-                    file1=form.file1.data,
-                    file2=form.file2.data,
-                    file3=form.file3.data,
-                    file4=form.file4.data,
-
-                    interest=form.interest.data,
                     password=form.password.data)
         print('hey')
         db.session.add(user)
@@ -86,6 +88,31 @@ def login():
 
     return render_template('login.htm', form=form, mess=error)
 
+@app.route('/apply', methods=['GET', 'POST'])
+def apply():
+    form = ApplicationForm()
+    if form.validate_on_submit():
+        new_application = Application(name=form.name.data, email=form.email.data, selected=form.radio.data)
+        db.session.add(new_application)
+        db.session.commit()
+        return redirect(url_for('home'))
+    return render_template('apply.htm', form=form)
 
+@app.route('/admin')
+@login_required
+def admin_dashboard():
+    if current_user.email1 == 'admin@studentigf.net':
+        applications = Application.query.all()
+        return render_template('admin.htm', applications=applications)
+    return abort(403)
+
+@app.route('/delete_application/<id>')
+def delete_application(id):
+    if current_user.email1 == 'admin@studentigf.net':
+        application = Application.query.filter_by(id=id).first()
+        db.session.delete(application)
+        db.session.commit()
+        return redirect(url_for('admin_dashboard'))
+    return abort(403)
 if __name__ == '__main__':
     app.run(debug=True)
