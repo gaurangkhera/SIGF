@@ -14,8 +14,28 @@ from werkzeug.security import generate_password_hash
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    # new_user = User('password','name1', 'name2', 'name3', 'name4', 'name5', 'name6', 'school1', 'school2', 'school3', 'school4', 'school5', 'school6', 'admin@studentigf.net', 'emailb', 'phone1', 'phoneb', 'interest', 'file1', 'file2', 'file3','file4')
-    # db.session.add(new_user)
+    # user = User(name1='hello',
+    #                 name2='hello',
+    #                 name3='hello',
+    #                 name4='hello' or '',
+
+    #                 school1='hello',
+    #                 school2='hello',
+    #                 school3='hello',
+    #                 school4='hello' or '',
+
+    #                 email1='admin@studentigf.net',
+    #                 emailb='hello',
+
+    #                 phone1=1111111111111111,
+    #                 phoneb=12277127,
+                    
+    #                 am_name = 'hello',
+    #                 am_email = 'hello',
+    #                 am_phone = 'hello',
+
+    #                 password='password')
+    # db.session.add(user)
     # db.session.commit()
     return render_template("index.htm")
 
@@ -53,7 +73,8 @@ def register():
         print('hey')
         db.session.add(user)
         db.session.commit()
-        return redirect(url_for('login'))
+        login_user(user)
+        return redirect(url_for('index'))
     return render_template('register.htm', form=form)
 
 
@@ -75,16 +96,15 @@ def login():
         if user is not None and user.check_password(form.password.data):
 
             login_user(user)
-            flash('Log in Success!')
 
             next = request.args.get('next')
             if next == None or not next[0] == '/':
                 next = url_for('index')
             return redirect(next)
         elif user is not None and user.check_password(form.password.data) == False:
-            error = 'Wrong Password'
+            error = 'Incorrect password.'
         elif user is None:
-            error = 'No such login Pls create one'
+            error = 'Account not found.'
 
     return render_template('login.htm', form=form, mess=error)
 
@@ -95,7 +115,7 @@ def apply():
         new_application = Application(name=form.name.data, email=form.email.data, selected=form.radio.data)
         db.session.add(new_application)
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('index'))
     return render_template('apply.htm', form=form)
 
 @app.route('/admin')

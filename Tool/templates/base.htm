@@ -52,17 +52,18 @@
                     <a rel="noopener noreferrer" href="{{url_for('login')}}"
                         class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Login</a>
                 </li>
-                {% if current_user.email1 == 'admin@studentigf.net' %}
-                <li class="flex">
-                  <a rel="noopener noreferrer" href="{{url_for('admin')}}"
-                      class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Admin Dashboard</a>
-              </li>
-                {% endif %}
+                
                 {% else %}
                 <li class="flex">
                     <a rel="noopener noreferrer" href="{{url_for('logout')}}"
                         class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Logout</a>
                 </li>
+                {% endif %}
+                {% if current_user.email1 == 'admin@studentigf.net' %}
+                <li class="flex">
+                  <a rel="noopener noreferrer" href="{{url_for('admin_dashboard')}}"
+                      class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Admin Dashboard</a>
+              </li>
                 {% endif %}
                 <li class="flex">
                     <a rel="noopener noreferrer" href="{{url_for('apply')}}"

@@ -28,9 +28,10 @@
                 </div>
                 {{form.radio}}
             </div>
+            <h1 class="text-red-400 text-lg">Please make sure to schedule an interview <a href="https://calendly.com/kavishgarg/25-minute-meeting" class="hover:underline text-red-400 font-bold" target="_blank">here.</a></h1>
         </div>
         <div class="space-y-2">
-            <button class="w-full px-8 py-3 font-semibold transition-all hover:bg-blue-700 rounded-md bg-blue-600 text-gray-50">Sign in</button>
+            {{form.submit(class='w-full px-8 py-3 font-semibold transition-all hover:bg-blue-700 rounded-md bg-blue-600 text-gray-50')}}
             <p class="px-6 text-lg text-center text-gray-600">Not an SIG yet?
                 <a rel="noopener noreferrer" href="{{url_for('register')}}" class="hover:underline text-blue-600">Register Now</a>.
             </p>

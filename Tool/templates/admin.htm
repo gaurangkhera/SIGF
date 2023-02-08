@@ -25,7 +25,7 @@
             <td class="border px-4 py-2 font-regular">{{application.name}}</td>
             <td class="border px-4 py-2 font-regular">{{application.email}}</td>
             <td class="border px-4 py-2 font-regular">{{application.selected}}</td>
-            <td><a class="btn-primary ml-2" href="/delete_application/{{application.id}}">Delete application</a></td>
+            <td><a class="hover:underline hover:text-red-400 transition-all 1s ml-2" href="/delete_application/{{application.id}}">Delete application</a></td>
         </tr>
         {% endfor %}
       </tbody>
