@@ -8,7 +8,6 @@
   }
   
   .members, .ap__grid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-gap: 5rem;
   }
@@ -29,7 +28,7 @@
   
   .post {
     font-size: 1.5rem;
-    color: var(--color-primary);
+    color: #2563EB;
     margin-bottom: 3rem;
   }
   
