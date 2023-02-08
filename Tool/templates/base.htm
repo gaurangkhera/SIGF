@@ -29,8 +29,6 @@
 </head>
 
 <body class="  bg-cover bg-gray-100" style="font-family: 'Coolvetic', sans-serif;">
-    <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v15.0" nonce="m5R3hEit"></script>
     <header class="p-4 bg-gray-100 text-gray-800">
         <div class="container flex justify-between h-16 mx-auto">
             <a rel="noopener noreferrer" href="/" aria-label="Back to homepage" class="flex items-center p-2">
@@ -54,6 +52,12 @@
                     <a rel="noopener noreferrer" href="{{url_for('login')}}"
                         class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Login</a>
                 </li>
+                {% if current_user.email1 == 'admin@studentigf.net' %}
+                <li class="flex">
+                  <a rel="noopener noreferrer" href="{{url_for('admin')}}"
+                      class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Admin Dashboard</a>
+              </li>
+                {% endif %}
                 {% else %}
                 <li class="flex">
                     <a rel="noopener noreferrer" href="{{url_for('logout')}}"
@@ -114,7 +118,7 @@
         <div
             class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
             <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
-                <div class="flex items-center justify-center flex-shrink-0 w-12 h-12 rounded-full ">
+                <div class="flex items-center w-32 h-32 p-2 justify-center flex-shrink-0 rounded-full ">
                    <img src="{{url_for('static', filename='img/IIGF.png')}}">
                 </div>
                
@@ -124,7 +128,7 @@
                     <a rel="noopener noreferrer" href="https://www.instagram.com/studentigf/">Instagram</a>
                 </li>
                 <li>
-                    <a rel="noopener noreferrer" href="admin@studentigf.net">Mail</a>
+                    <a rel="noopener noreferrer" href="mailto:admin@studentigf.net">Mail</a>
                 </li>
                 <li>
                     <a rel="noopener noreferrer" href="https://twitter.com/sigfofficial">Twitter</a>

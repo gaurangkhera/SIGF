@@ -3,12 +3,6 @@ html{
     font-size: 62.5% !important;
   }
   
-  @media only screen and (min-width: 87.5em) {
-    html {
-        font-size: 65% !important;
-    }
-  }
-  
   @media only screen and (max-width: 75em) {
     html {
         font-size: 50% !important;
@@ -17,14 +11,14 @@ html{
   
   @media only screen and (max-width: 56.25em) {
     html {
-        font-size: 37.5% !important;
+        font-size: 47.5% !important;
         
     }
   }
   
   @media only screen and (max-width: 37.5em) {
     html {
-        font-size: 30% !important;
+        font-size: 40% !important;
         margin-bottom: 100px;
     }
   }
