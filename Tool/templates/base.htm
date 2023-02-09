@@ -36,38 +36,38 @@
       <ul class="items-stretch hidden space-x-3 lg:flex text-2xl">
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('index')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Home</a>
+            class="flex items-center px-4 -mb-1 border-b-2 border-transparent group transition-all duration-300 ease-in-out"><span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-0.5s ease-out">Home</span></a>
         </li>
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('about')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">About</a>
+            class="flex items-center px-4 -mb-1 border-b-2  border-transparent group transition-all duration-300 ease-in-out"><span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-0.5s ease-out">About</span></a>
         </li>
         {% if not current_user.is_authenticated %}
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('register')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Register</a>
+            class="flex items-center px-4 -mb-1 border-b-2  border-transparent group transition-all duration-300 ease-in-out"><span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-0.5s ease-out">Register</span></a>
         </li>
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('login')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Login</a>
+            class="flex items-center px-4 -mb-1 border-b-2 border-transparent group transition-all duration-300 ease-in-out"><span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-0.5s ease-out">Login</span></a>
         </li>
 
         {% else %}
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('logout')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Logout</a>
+            class="flex items-center px-4 -mb-1 border-b-2  border-transparent">Logout</a>
         </li>
         {% endif %}
         {% if current_user.email1 == 'admin@studentigf.net' %}
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('admin_dashboard')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Admin
+            class="flex items-center px-4 -mb-1 border-b-2  border-transparent">Admin
             Dashboard</a>
         </li>
         {% endif %}
         <li class="flex">
           <a rel="noopener noreferrer" href="{{url_for('apply')}}"
-            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Apply</a>
+            class="flex items-center px-4 -mb-1 border-b-2 group transition-all duration-300 ease-in-out border-transparent"><span class="bg-left-bottom bg-gradient-to-r from-gray-500 to-gray-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-0.5s ease-out">Apply</span></a>
         </li>
       </ul>
       <button class="flex justify-end p-4 lg:hidden" id="ham">
