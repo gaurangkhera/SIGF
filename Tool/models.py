@@ -35,7 +35,7 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    def __init__(self, password, name1, name2, name3, name4,school1,am_email,am_name, am_phone, school2, school3, school4, email1, emailb, phone1, phoneb):
+    def __init__(self, password, name1, name2, name3, name4, school1, am_email, am_name, am_phone, school2, school3, school4, email1, emailb, phone1, phoneb):
         self.password_hash = generate_password_hash(password)
         self.name1 = name1
         self.name2 = name2
@@ -52,14 +52,15 @@ class User(db.Model, UserMixin):
         self.am_phone = am_phone
         self.phone1 = phone1
         self.phoneb = phoneb
-        
+
+
 class Application(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
     email = db.Column(db.String(64))
     selected = db.Column(db.String(32))
-    
-    def __init__(self,name, email, selected):
+
+    def __init__(self, name, email, selected):
         self.name = name
         self.email = email
         self.selected = selected

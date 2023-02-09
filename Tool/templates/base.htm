@@ -1,144 +1,139 @@
-
 <html>
 
 <head>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>SIGF | {% block title %}
-        
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>SIGF | {% block title %}
+
     {% endblock %}</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;800&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/c416e79406.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" />
-    <link rel="stylesheet" href="{{url_for('static', filename='css/members.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/bulletin.css')}}">
-    <script async defer src="http://platform.instagram.com/en_US/embeds.js"></script>
-    <style>
-        @font-face {
-            font-family: 'Akira';
-            src: url('/static/fonts/Akira-Expanded-Demo.ttf') format('truetype');
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/c416e79406.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.css" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/members.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/bulletin.css')}}">
+  <script async defer src="http://platform.instagram.com/en_US/embeds.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Akira';
+      src: url('/static/fonts/Akira-Expanded-Demo.ttf') format('truetype');
+    }
 
-        @font-face {
-            font-family: 'Coolvetic';
-            src: url('/static/fonts/coolvetica-rg.ttf') format('truetype');
-        }
-    </style>
+    @font-face {
+      font-family: 'Coolvetic';
+      src: url('/static/fonts/coolvetica-rg.ttf') format('truetype');
+    }
+  </style>
 </head>
 
-<body class="  bg-cover bg-gray-100" style="font-family: 'Coolvetic', sans-serif;">
-    <header class="p-4 bg-gray-100 text-gray-800">
-        <div class="container flex justify-between h-16 mx-auto">
-            <a rel="noopener noreferrer" href="/" aria-label="Back to homepage" class="flex items-center p-2">
-                <h1 class="text-4xl">SIGF</h1>
-            </a>
-            <ul class="items-stretch hidden space-x-3 lg:flex text-2xl">
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="{{url_for('index')}}"
-                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Home</a>
-                </li>
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="{{url_for('about')}}"
-                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">About</a>
-                </li>
-                {% if not current_user.is_authenticated %}
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="{{url_for('register')}}"
-                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Register</a>
-                </li>
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="{{url_for('login')}}"
-                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Login</a>
-                </li>
-                
-                {% else %}
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="{{url_for('logout')}}"
-                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Logout</a>
-                </li>
-                {% endif %}
-                {% if current_user.email1 == 'admin@studentigf.net' %}
-                <li class="flex">
-                  <a rel="noopener noreferrer" href="{{url_for('admin_dashboard')}}"
-                      class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Admin Dashboard</a>
-              </li>
-                {% endif %}
-                <li class="flex">
-                    <a rel="noopener noreferrer" href="{{url_for('apply')}}"
-                        class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Apply</a>
-                </li>
-            </ul>
-            <button class="flex justify-end p-4 lg:hidden" id="ham">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                    class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
-        </div>
-    </header>
-    <div class="hidden mobile-menu bg-gray-100" id="mobile">
-        <ul class="">
-          <li class="active">
-            <a href="{{url_for('index')}}" class="block text-xl ml-10 px-2 py-4 font-semibold"
-              >Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="{{url_for('about')}}"
-              class="block text-xl ml-10 px-2 py-4 font-semibold"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a href="{{url_for('register')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
-              Register
-            </a>
-          </li>
-          <li>
-            <a href="{{url_for('login')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
-              Login
-            </a>
-          </li>
-          <li>
-            <a href="{{url_for('apply')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
-              Apply
-            </a>
-          </li>
-        </ul>
-        <hr>
-      </div>
-      {% block content %}
-        
-      {% endblock %}
-      <footer class="px-4 py-8 bg-gray-100 text-gray-600">
-        <div
-            class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
-            <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
-                <div class="flex items-center w-32 h-32 p-2 justify-center flex-shrink-0 rounded-full ">
-                   <img src="{{url_for('static', filename='img/IIGF.png')}}">
-                </div>
-               
-            </div>
-            <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
-                <li>
-                    <a rel="noopener noreferrer" href="https://www.instagram.com/studentigf/">Instagram</a>
-                </li>
-                <li>
-                    <a rel="noopener noreferrer" href="mailto:admin@studentigf.net">Mail</a>
-                </li>
-                <li>
-                    <a rel="noopener noreferrer" href="https://twitter.com/sigfofficial">Twitter</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-    <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
-    <script src="{{url_for('static', filename='js/script.js')}}"></script>
-</body>
+<body class="bg-cover bg-gray-100" style="font-family: 'Coolvetic', sans-serif;">
+  <header class="p-4 bg-gray-100 text-gray-800">
+    <div class="container flex justify-between h-16 mx-auto">
+      <a rel="noopener noreferrer" href="/" aria-label="Back to homepage" class="flex items-center p-2">
+        <h1 class="lg:text-4xl text-5xl">SIGF</h1>
+      </a>
+      <ul class="items-stretch hidden space-x-3 lg:flex text-2xl">
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('index')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Home</a>
+        </li>
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('about')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">About</a>
+        </li>
+        {% if not current_user.is_authenticated %}
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('register')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Register</a>
+        </li>
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('login')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Login</a>
+        </li>
 
+        {% else %}
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('logout')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Logout</a>
+        </li>
+        {% endif %}
+        {% if current_user.email1 == 'admin@studentigf.net' %}
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('admin_dashboard')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Admin
+            Dashboard</a>
+        </li>
+        {% endif %}
+        <li class="flex">
+          <a rel="noopener noreferrer" href="{{url_for('apply')}}"
+            class="flex items-center px-4 -mb-1 border-b-2 hover:underline hover:underline-offset-4 border-transparent">Apply</a>
+        </li>
+      </ul>
+      <button class="flex justify-end p-4 lg:hidden" id="ham">
+        <ion-icon name="reorder-two-outline" class="text-5xl text-gray-600"></ion-icon>
+      </button>
+      <button class="hidden flex justify-end p-4 lg:hidden" id="cross">
+        <ion-icon name="close-outline" class="text-5xl text-gray-600"></ion-icon>
+      </button>
+    </div>
+  </header>
+  <div class="hidden mobile-menu bg-gray-100" id="mobile">
+    <ul class="">
+      <li class="active">
+        <a href="{{url_for('index')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">Home
+        </a>
+      </li>
+      <li>
+        <a href="{{url_for('about')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="{{url_for('register')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+          Register
+        </a>
+      </li>
+      <li>
+        <a href="{{url_for('login')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+          Login
+        </a>
+      </li>
+      <li>
+        <a href="{{url_for('apply')}}" class="block text-xl ml-10 px-2 py-4 font-semibold">
+          Apply
+        </a>
+      </li>
+    </ul>
+    <hr>
+  </div>
+  {% block content %}
+
+  {% endblock %}
+  <footer class="px-4 py-8 bg-gray-100 text-gray-600">
+    <div class="container flex flex-wrap items-center justify-center mx-auto space-y-4 sm:justify-between sm:space-y-0">
+      <div class="flex flex-row pr-3 space-x-4 sm:space-x-8">
+        <div class="flex items-center w-32 h-32 p-2 justify-center flex-shrink-0 rounded-full ">
+          <img src="{{url_for('static', filename='img/IIGF.png')}}">
+        </div>
+
+      </div>
+      <ul class="flex flex-wrap pl-3 space-x-4 sm:space-x-8">
+        <li>
+          <a rel="noopener noreferrer" href="https://www.instagram.com/studentigf/">Instagram</a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" href="mailto:admin@studentigf.net">Mail</a>
+        </li>
+        <li>
+          <a rel="noopener noreferrer" href="https://twitter.com/sigfofficial">Twitter</a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  <script src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.min.js"></script>
+  <script src="{{url_for('static', filename='js/script.js')}}"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
 </html>

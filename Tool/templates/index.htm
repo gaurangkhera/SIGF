@@ -1,6 +1,6 @@
 {% extends 'base.htm' %}
 {% block title %}
-    Home
+Home
 {% endblock %}
 {%block content%}
 <section class="bg-gray-100 text-gray-800">
@@ -12,7 +12,8 @@
         <p class="px-8 mt-8 mb-12 text-3xl">Internet and Technology Policy for the Youth</p>
         <div class="flex  flex-cols-2 justify-center">
             <A href="{{url_for('register')}}"> <button
-                    class="px-12 py-6 m-2 text-[13px] font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Register as a  
+                    class="px-12 py-6 m-2 text-[13px] font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Register
+                    as a
                     SIG</button></A>
             <a href="{{url_for('about')}}"> <button
                     class="px-8 py-6 m-2 text-[13px] font-semibold border transition-all hover:bg-gray-200 rounded-3xl text-gray-900 border-gray-300">Learn
@@ -22,45 +23,51 @@
 </section>
 
 <section class="bg-gray-100 text-gray-800 mt-32 mb-32 flex">
-        <img class="img hidden lg:flex ml-10" src="{{url_for('static', filename='img/sigf.png')}}">
-        <div class="flex flex-col w-full p-6 lg:w-2/3 md:p-8 lg:p-12">
-            <h2 class="text-6xl font-semibold leading-none heading-1 ml-36">About Us</h2>
-            <p class="mt-4 mb-8 text-2xl ml-36">SIGF is a platform for young adults to present their views on core internet
-                policy and technology, as well as on the various intersections of it with other policy fields, like
-                finance, health, and education. It acts a bridge between the stakeholders in the field of internet,
-                technology, and digital policy and the youth.</p>
-            <A href="{{url_for('about')}}"> <button
-                    class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700 ml-36">Learn
-                    More</button></A>
-        </div>
+    <img class="img hidden lg:flex ml-10" src="{{url_for('static', filename='img/sigf.png')}}">
+    <div class="flex flex-col w-full p-6 lg:w-2/3 md:p-8 lg:p-12">
+        <h2 class="text-6xl font-semibold leading-none heading-1 ml-36">About Us</h2>
+        <p class="mt-4 mb-8 text-2xl ml-36">SIGF is a platform for young adults to present their views on core internet
+            policy and technology, as well as on the various intersections of it with other policy fields, like
+            finance, health, and education. It acts a bridge between the stakeholders in the field of internet,
+            technology, and digital policy and the youth.</p>
+        <A href="{{url_for('about')}}"> <button
+                class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700 ml-36">Learn
+                More</button></A>
+    </div>
     </div>
 </section>
-<link rel="stylesheet" href="{{url_for('static', filename='css/bulletin.css')}}">
 <section class="events-section mb-16 mt-16">
     <div class="events-container">
         <h1 class="text-6xl font-semibold leading-none heading-1 mb-24 h-5 w-5">Bulletin</h1>
         <div class="events">
             <div class="event">
                 <p class="event__heading mb-8">Conference</p>
-                <p class="event__text mb-8">The Student's Internet Governance Forum (SIGF) is planning to hold a Conference on the 1st of October, 2022 in a multistakeholderism manner, wherein high school students will present their views and research, and debate on pressing issues in the field of internet and digital policy. The debates will permit the students to develop a deeper understanding of the aforementioned issues through a highly engaging and interactive format.</p>
+                <p class="event__text mb-8">The Student's Internet Governance Forum (SIGF) is planning to hold a
+                    Conference on the 1st of October, 2022 in a multistakeholderism manner, wherein high school students
+                    will present their views and research, and debate on pressing issues in the field of internet and
+                    digital policy. The debates will permit the students to develop a deeper understanding of the
+                    aforementioned issues through a highly engaging and interactive format.</p>
                 <A href="{{url_for('about')}}"> <button
-                    class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Learn
-                    More</button></A>
+                        class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Learn
+                        More</button></A>
             </div>
 
             <div class="event">
                 <p class="event__heading mb-8">SIG Registration</p>
-                <p class="event__text mb-8">Form a Special Interest Group to represent your school at SIGF events. Examine the issue in the space of internet and technology most pertinent to you and defend your views in front of policymakers and experts.</p>
+                <p class="event__text mb-8">Form a Special Interest Group to represent your school at SIGF events.
+                    Examine the issue in the space of internet and technology most pertinent to you and defend your
+                    views in front of policymakers and experts.</p>
                 <A href="{{url_for('register')}}"> <button
-                    class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Register here</button></A>
+                        class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Register
+                        here</button></A>
             </div>
 
             <div class="event">
                 <p class="event__heading mb-8">Introduction Webinar</p>
                 <p class="event__text mb-8">Details arriving soon.</p>
                 <A href="{{url_for('about')}}"> <button
-                    class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Learn
-                    More</button></A>
+                        class="px-12 py-6 m-2 text-xl font-semibold border rounded-3xl bg-blue-600 text-gray-50 transition-all hover:bg-blue-700">Learn
+                        More</button></A>
             </div>
         </div>
     </div>
@@ -74,7 +81,14 @@
         <div class="grid flex align-center content-evenly grid-cols-1 gap-y-8 md:grid-cols-2">
             <article class="flex flex-col h-[500px] w-[366px] lg:ml-96">
                 <div class="flex flex-col">
-                   <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 247px; height: 500px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/sigfofficial?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOlsibGlua3RyLmVlIiwidHIuZWUiLCJ0ZXJyYS5jb20uYnIiLCJ3d3cubGlua3RyLmVlIiwid3d3LnRyLmVlIiwid3d3LnRlcnJhLmNvbS5iciJdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOmZhbHNlLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdGltZWxpbmVfMTIwMzQiOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2JhY2tlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3JlZnNyY19zZXNzaW9uIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2J1c2luZXNzX3ZlcmlmaWVkX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19jaGluX3BpbGxzXzE0NzQxIjp7ImJ1Y2tldCI6ImNvbG9yX2ljb25zIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19zZW5zaXRpdmVfbWVkaWFfaW50ZXJzdGl0aWFsXzEzOTYzIjp7ImJ1Y2tldCI6ImludGVyc3RpdGlhbCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2JsdWVfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2xlZ2FjeV90aW1lbGluZV9zdW5zZXQiOnsiYnVja2V0IjpmYWxzZSwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2dvdl92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc19hZmZpbGlhdGVfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3R3ZWV0X2VkaXRfZnJvbnRlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfX0%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=en&amp;maxHeight=500px&amp;origin=https%3A%2F%2Ftext-2xlindia.in%2F&amp;sessionId=ae996e9c82197317aecce4c951b8f91fc5a6a879&amp;showHeader=true&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=a3525f077c700%3A1667415560940"></iframe></div>
+                    <div class="twitter-timeline twitter-timeline-rendered"
+                        style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;"><iframe
+                            id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+                            allowfullscreen="true" class=""
+                            style="position: static; visibility: visible; width: 247px; height: 500px; display: block; flex-grow: 1;"
+                            title="Twitter Timeline"
+                            src="https://syndication.twitter.com/srv/timeline-profile/screen-name/sigfofficial?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOlsibGlua3RyLmVlIiwidHIuZWUiLCJ0ZXJyYS5jb20uYnIiLCJ3d3cubGlua3RyLmVlIiwid3d3LnRyLmVlIiwid3d3LnRlcnJhLmNvbS5iciJdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOmZhbHNlLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdGltZWxpbmVfMTIwMzQiOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2JhY2tlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3JlZnNyY19zZXNzaW9uIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2J1c2luZXNzX3ZlcmlmaWVkX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19jaGluX3BpbGxzXzE0NzQxIjp7ImJ1Y2tldCI6ImNvbG9yX2ljb25zIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19zZW5zaXRpdmVfbWVkaWFfaW50ZXJzdGl0aWFsXzEzOTYzIjp7ImJ1Y2tldCI6ImludGVyc3RpdGlhbCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2JsdWVfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2xlZ2FjeV90aW1lbGluZV9zdW5zZXQiOnsiYnVja2V0IjpmYWxzZSwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2dvdl92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc19hZmZpbGlhdGVfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3R3ZWV0X2VkaXRfZnJvbnRlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfX0%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=en&amp;maxHeight=500px&amp;origin=https%3A%2F%2Ftext-2xlindia.in%2F&amp;sessionId=ae996e9c82197317aecce4c951b8f91fc5a6a879&amp;showHeader=true&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=a3525f077c700%3A1667415560940"></iframe>
+                    </div>
                 </div>
             </article>
             <!-- <article class="flex flex-col h-[500px] w-[366px]">
@@ -83,7 +97,14 @@
             </article> -->
             </article>
             <article class="h-[500px] w-[366px]">
-                <div class="twitter-timeline twitter-timeline-rendered" style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="" style="position: static; visibility: visible; width: 247px; height: 500px; display: block; flex-grow: 1;" title="Twitter Timeline" src="https://syndication.twitter.com/srv/timeline-profile/screen-name/sigfofficial?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOlsibGlua3RyLmVlIiwidHIuZWUiLCJ0ZXJyYS5jb20uYnIiLCJ3d3cubGlua3RyLmVlIiwid3d3LnRyLmVlIiwid3d3LnRlcnJhLmNvbS5iciJdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOmZhbHNlLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdGltZWxpbmVfMTIwMzQiOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2JhY2tlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3JlZnNyY19zZXNzaW9uIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2J1c2luZXNzX3ZlcmlmaWVkX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19jaGluX3BpbGxzXzE0NzQxIjp7ImJ1Y2tldCI6ImNvbG9yX2ljb25zIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19zZW5zaXRpdmVfbWVkaWFfaW50ZXJzdGl0aWFsXzEzOTYzIjp7ImJ1Y2tldCI6ImludGVyc3RpdGlhbCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2JsdWVfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2xlZ2FjeV90aW1lbGluZV9zdW5zZXQiOnsiYnVja2V0IjpmYWxzZSwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2dvdl92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc19hZmZpbGlhdGVfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3R3ZWV0X2VkaXRfZnJvbnRlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfX0%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=en&amp;maxHeight=500px&amp;origin=https%3A%2F%2Ftext-2xlindia.in%2F&amp;sessionId=ae996e9c82197317aecce4c951b8f91fc5a6a879&amp;showHeader=true&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=a3525f077c700%3A1667415560940"></iframe></div>
+                <div class="twitter-timeline twitter-timeline-rendered"
+                    style="display: flex; max-width: 100%; margin-top: 0px; margin-bottom: 0px;"><iframe
+                        id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true"
+                        allowfullscreen="true" class=""
+                        style="position: static; visibility: visible; width: 247px; height: 500px; display: block; flex-grow: 1;"
+                        title="Twitter Timeline"
+                        src="https://syndication.twitter.com/srv/timeline-profile/screen-name/sigfofficial?dnt=false&amp;embedId=twitter-widget-0&amp;features=eyJ0ZndfdGltZWxpbmVfbGlzdCI6eyJidWNrZXQiOlsibGlua3RyLmVlIiwidHIuZWUiLCJ0ZXJyYS5jb20uYnIiLCJ3d3cubGlua3RyLmVlIiwid3d3LnRyLmVlIiwid3d3LnRlcnJhLmNvbS5iciJdLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2ZvbGxvd2VyX2NvdW50X3N1bnNldCI6eyJidWNrZXQiOmZhbHNlLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2hvcml6b25fdGltZWxpbmVfMTIwMzQiOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9lZGl0X2JhY2tlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3JlZnNyY19zZXNzaW9uIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2J1c2luZXNzX3ZlcmlmaWVkX2JhZGdlIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd19jaGluX3BpbGxzXzE0NzQxIjp7ImJ1Y2tldCI6ImNvbG9yX2ljb25zIiwidmVyc2lvbiI6bnVsbH0sInRmd190d2VldF9yZXN1bHRfbWlncmF0aW9uXzEzOTc5Ijp7ImJ1Y2tldCI6InR3ZWV0X3Jlc3VsdCIsInZlcnNpb24iOm51bGx9LCJ0ZndfbWl4ZWRfbWVkaWFfMTU4OTciOnsiYnVja2V0IjoidHJlYXRtZW50IiwidmVyc2lvbiI6bnVsbH0sInRmd19zZW5zaXRpdmVfbWVkaWFfaW50ZXJzdGl0aWFsXzEzOTYzIjp7ImJ1Y2tldCI6ImludGVyc3RpdGlhbCIsInZlcnNpb24iOm51bGx9LCJ0ZndfZXhwZXJpbWVudHNfY29va2llX2V4cGlyYXRpb24iOnsiYnVja2V0IjoxMjA5NjAwLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2R1cGxpY2F0ZV9zY3JpYmVzX3RvX3NldHRpbmdzIjp7ImJ1Y2tldCI6Im9uIiwidmVyc2lvbiI6bnVsbH0sInRmd192aWRlb19obHNfZHluYW1pY19tYW5pZmVzdHNfMTUwODIiOnsiYnVja2V0IjoidHJ1ZV9iaXRyYXRlIiwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2JsdWVfdmVyaWZpZWRfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X2xlZ2FjeV90aW1lbGluZV9zdW5zZXQiOnsiYnVja2V0IjpmYWxzZSwidmVyc2lvbiI6bnVsbH0sInRmd19zaG93X2dvdl92ZXJpZmllZF9iYWRnZSI6eyJidWNrZXQiOiJvbiIsInZlcnNpb24iOm51bGx9LCJ0Zndfc2hvd19idXNpbmVzc19hZmZpbGlhdGVfYmFkZ2UiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfSwidGZ3X3R3ZWV0X2VkaXRfZnJvbnRlbmQiOnsiYnVja2V0Ijoib24iLCJ2ZXJzaW9uIjpudWxsfX0%3D&amp;frame=false&amp;hideBorder=false&amp;hideFooter=false&amp;hideHeader=false&amp;hideScrollBar=false&amp;lang=en&amp;maxHeight=500px&amp;origin=https%3A%2F%2Ftext-2xlindia.in%2F&amp;sessionId=ae996e9c82197317aecce4c951b8f91fc5a6a879&amp;showHeader=true&amp;showReplies=false&amp;transparent=false&amp;widgetsVersion=a3525f077c700%3A1667415560940"></iframe>
+                </div>
             </article>
         </div>
     </div>

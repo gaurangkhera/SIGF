@@ -3,7 +3,7 @@ from wtforms import StringField, PasswordField, SubmitField, TextAreaField, File
 from wtforms.validators import DataRequired, Email, EqualTo, Length
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import ValidationError
-from Tool import app,db
+from Tool import app, db
 from flask_login import current_user
 from Tool.models import User
 
@@ -30,7 +30,6 @@ class RegistrationForm(FlaskForm):
     pass_confirm = PasswordField(
         'Confirm Password', validators=[DataRequired()])
 
-
     def validate_email(self, field):
         if User.query.filter_by(email=field.data).first():
             raise ValidationError(
@@ -46,9 +45,11 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Log in')
-    
+
+
 class ApplicationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     email = EmailField('Email', validators=[DataRequired()])
-    radio = RadioField('Select', choices=['Recruitment', 'Outreach', 'Graphics Design', 'Social Media Management'])
+    radio = RadioField('Select', choices=[
+                       'Recruitment', 'Outreach', 'Graphics Design', 'Social Media Management'])
     submit = SubmitField('Submit application')

@@ -1,14 +1,14 @@
 {% extends 'base.htm' %}
 {% block title %}
-    Admin Dashboard
+Admin Dashboard
 {% endblock %}
 {% block content %}
 <center>
   {% if applications|length == 0 %}
-    <h1 class="admin-text font-bold text-4xl">No pending applications.</h1>
+  <h1 class="admin-text font-bold text-4xl">No pending applications.</h1>
 
   {%else%}
-<div class="rounded-t-xl overflow-hidden p-10 admin-table">
+  <div class="rounded-t-xl overflow-hidden p-10 admin-table">
     <table class="table-auto">
       <thead>
         <tr>
@@ -21,15 +21,17 @@
       <tbody>
         {% for application in applications %}
         <tr>
-            <td class="border px-4 py-2 font-regular">{{application.id}}</td>
-            <td class="border px-4 py-2 font-regular">{{application.name}}</td>
-            <td class="border px-4 py-2 font-regular">{{application.email}}</td>
-            <td class="border px-4 py-2 font-regular">{{application.selected}}</td>
-            <td><a class="hover:underline hover:text-red-400 transition-all 1s ml-2" href="/delete_application/{{application.id}}">Delete application</a></td>
+          <td class="border px-4 py-2 font-regular">{{application.id}}</td>
+          <td class="border px-4 py-2 font-regular">{{application.name}}</td>
+          <td class="border px-4 py-2 font-regular">{{application.email}}</td>
+          <td class="border px-4 py-2 font-regular">{{application.selected}}</td>
+          <td><a class="hover:underline hover:text-red-400 transition-all 1s ml-2"
+              href="/delete_application/{{application.id}}">Delete application</a></td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
-  </div></center>
-  {% endif %}
+  </div>
+</center>
+{% endif %}
 {% endblock %}
