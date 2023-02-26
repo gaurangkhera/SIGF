@@ -135,7 +135,7 @@ def delete_application(id):
         return redirect(url_for('admin_dashboard'))
     return abort(403)
 
-@app.route('sigfz')
+@app.route('/sigfz')
 def sigfz():
     return render_template('sigfz.html')
 
