@@ -64,3 +64,12 @@ class Application(db.Model):
         self.name = name
         self.email = email
         self.selected = selected
+
+class SIGFChallengeSub(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    writeup = db.Column(db.String(150))
+    school = db.Column(db.String)
+    email = db.Column(db.String)
+    age = db.Column(db.Integer)
+    city = db.Column(db.String)

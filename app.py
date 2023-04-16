@@ -1,6 +1,6 @@
 from Tool import app, db
-from Tool.forms import RegistrationForm, LoginForm, ApplicationForm
-from Tool.models import User, Application
+from Tool.forms import RegistrationForm, LoginForm, ApplicationForm, SIGFform
+from Tool.models import User, Application, SIGFChallengeSub
 from flask import render_template, request, url_for, redirect, flash, abort, jsonify, make_response
 from flask_login import current_user, login_required, login_user, logout_user
 import secrets
@@ -134,6 +134,16 @@ def delete_application(id):
         db.session.commit()
         return redirect(url_for('admin_dashboard'))
     return abort(403)
+
+@app.route('/sigf-challenge-2', methods=['GET', 'POST'])
+def challenge():
+    form = SIGFform()
+    if form.validate_on_submit():
+        s = SIGFChallengeSub(name=form.f_name.data, age=form.age.data, school=form.school.data, writeup=form.writeup.data, city=form.city.data,email=form.email.data)
+        db.session.add(s)
+        db.session.commit()
+        return redirect(url_for('index'))
+    return render_template('challenge2.html', form=form)
 
 @app.route('/sigfz')
 def sigfz():

@@ -53,3 +53,14 @@ class ApplicationForm(FlaskForm):
     radio = RadioField('Select', choices=[
                        'Recruitment', 'Outreach', 'Graphics Design', 'Social Media Management'])
     submit = SubmitField('Submit application')
+    
+class SIGFform(FlaskForm):
+    f_name = StringField('name', validators=[DataRequired()])
+    school = StringField('school', validators=[DataRequired()])
+    email = StringField('name', validators=[DataRequired()])
+    age = IntegerField('name', validators=[DataRequired()])
+    writeup = TextAreaField('writeup', validators=[DataRequired()])
+    city = StringField('name', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+    
+    
